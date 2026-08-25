@@ -1,0 +1,200 @@
+"use client"
+import React, { useState } from 'react';
+import Simplebar from 'simplebar-react';
+import 'simplebar-react/dist/simplebar.min.css';
+import { Image, Table, Nav, Tab, NavDropdown, Form } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes, faArrowUp, faStar } from '@fortawesome/free-solid-svg-icons';
+
+export const page = () => {
+    const [showDropdown, setShowDropdown] = useState(false);
+
+    const toggleDropdown = (isOpen) => {
+        setShowDropdown(isOpen);
+    };
+
+    const handleItemClick = (e) => {
+        e.stopPropagation(); // Prevents dropdown from closing on inside clicks
+    };
+
+    const closeTab = () => {
+        setShowDropdown(false); // Explicitly close the dropdown
+        console.log('Dropdown closed');
+    };
+
+
+    return (
+        <div className="livepricelist livepricelist-new">
+            <div className="livepricemobile">
+                <ul className="livepricenavbg">
+                    <li>
+                        <span className="markettabdropbox">
+                            <NavDropdown title={<div className="float-start">
+                                <FontAwesomeIcon className='pe-2' icon={faStar} /><Image src="assets/images/color/btc.svg" className="coinlisticon" alt="coin" />BTC/ETH</div>} id="basic-nav-dropdown" className="marketlist markeselect" show={showDropdown} onToggle={toggleDropdown} >
+                                <div className="dropdown-item">
+                                    <div id="closemarketicon" className="closeiconlist" onClick={closeTab}><FontAwesomeIcon icon={faTimes} /></div>
+                                    <h2 className="heading-box bg-none">Markets List</h2>
+                                    <Tab.Container defaultActiveKey="btc">
+                                        <div className="filtersearch">
+                                            <Form className="siteformbg">
+                                                <Form.Group className="form-group mb-2">
+                                                    <Form.Control placeholder="Seacrh" id='searchtextbox' />
+                                                </Form.Group >
+                                            </Form>
+                                        </div>
+                                        <div className="innerpagetab historytab">
+                                            <Nav variant="pills" className="tabbanner" id="marketpair_tab1">
+                                                <Nav.Item><Nav.Link eventKey="btc">Favorites</Nav.Link></Nav.Item>
+                                                <Nav.Item><Nav.Link eventKey="eth">ETH</Nav.Link></Nav.Item>
+                                            </Nav>
+                                        </div>
+                                        <Tab.Content id="market_dropdown_table1">
+                                            <Tab.Pane eventKey="btc">
+                                                <Simplebar className="table-responsive">
+                                                    <Table className="sitetable" id='table1'>
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Coin</th>
+                                                                <th>Last Price</th>
+                                                                <th>24h Change</th>
+                                                                <th>24h Volume</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr className="activerow">
+                                                                <td> <span className='pe-2 staricon active'><FontAwesomeIcon icon={faStar} /></span><Image src="../assets/images/color/btc.svg" width={25} height={25} alt="coin" className="coinlisticon" />BTC/ETH</td>
+                                                                <td>2562.365289</td>
+                                                                <td><span className="t-green">2.20% <FontAwesomeIcon icon={faArrowUp} /></span></td>
+                                                                <td>2562.365289</td>
+
+                                                            </tr>
+                                                            <tr>
+                                                                <td><span className='pe-2 staricon active'><FontAwesomeIcon icon={faStar} /></span><Image src="../assets/images/color/eth.svg" width={25} height={25} alt="coin" className="coinlisticon" />ETH/BTC</td>
+                                                                <td>2562.365289</td>
+                                                                <td><span className="t-green">2.20% <FontAwesomeIcon icon={faArrowUp} /></span></td>
+                                                                <td>2562.365289</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><span className='pe-2 staricon active'><FontAwesomeIcon icon={faStar} /></span><Image src="../assets/images/color/bnb.svg" width={25} height={25} alt="coin" className="coinlisticon" />BNB/ETH</td>
+                                                                <td>2562.365289</td>
+                                                                <td><span className="t-green">2.20% <FontAwesomeIcon icon={faArrowUp} /></span></td>
+                                                                <td>2562.365289</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><span className='pe-2 staricon'><FontAwesomeIcon icon={faStar} /></span><Image src="../assets/images/color/trx.svg" width={25} height={25} alt="coin" className="coinlisticon" />TRX/ETH</td>
+                                                                <td>2562.365289</td>
+                                                                <td><span className="t-green">2.20% <FontAwesomeIcon icon={faArrowUp} /></span></td>
+                                                                <td>2562.365289</td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td><span className='pe-2 staricon'><FontAwesomeIcon icon={faStar} /></span><Image src="../assets/images/color/sol.svg" width={25} height={25} alt="coin" className="coinlisticon" />SOL/ETH</td>
+                                                                <td>2562.365289</td>
+                                                                <td><span className="t-green">2.20% <FontAwesomeIcon icon={faArrowUp} /></span></td>
+                                                                <td>2562.365289</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><span className='pe-2 staricon'><FontAwesomeIcon icon={faStar} /></span><Image src="../assets/images/color/xrp.svg" width={25} height={25} alt="coin" className="coinlisticon" />XRP/ETH</td>
+                                                                <td>2562.365289</td>
+                                                                <td><span className="t-green">2.20% <FontAwesomeIcon icon={faArrowUp} /></span></td>
+                                                                <td>2562.365289</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><span className='pe-2 staricon'><FontAwesomeIcon icon={faStar} /></span><Image src="../assets/images/color/ada.svg" width={25} height={25} alt="coin" className="coinlisticon" />ADA/ETH</td>
+                                                                <td>2562.365289</td>
+                                                                <td><span className="t-green">2.20% <FontAwesomeIcon icon={faArrowUp} /></span></td>
+                                                                <td>2562.365289</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><span className='pe-2 staricon'><FontAwesomeIcon icon={faStar} /></span><Image src="../assets/images/color/doge.svg" width={25} height={25} alt="coin" className="coinlisticon" />DOGE/ETH</td>
+                                                                <td>2562.365289</td>
+                                                                <td><span className="t-green">2.20% <FontAwesomeIcon icon={faArrowUp} /></span></td>
+                                                                <td>2562.365289</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </Table>
+                                                </Simplebar>
+                                            </Tab.Pane>
+                                            <Tab.Pane eventKey="eth">
+                                                <Simplebar className="table-responsive">
+                                                    <Table className="sitetable" id='table2'>
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Coin</th>
+                                                                <th>Last Price</th>
+                                                                <th>24h Change</th>
+                                                                <th>24h Volume</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr className="activerow">
+                                                                <td> <span className='pe-2 staricon'><FontAwesomeIcon icon={faStar} /></span><Image src="../assets/images/color/btc.svg" width={25} height={25} alt="coin" className="coinlisticon" />BTC/ETH</td>
+                                                                <td>2562.365289</td>
+                                                                <td><span className="t-green">2.20% <FontAwesomeIcon icon={faArrowUp} /></span></td>
+                                                                <td>2562.365289</td>
+
+                                                            </tr>
+                                                            <tr>
+                                                                <td><span className='pe-2 staricon'><FontAwesomeIcon icon={faStar} /></span><Image src="../assets/images/color/eth.svg" width={25} height={25} alt="coin" className="coinlisticon" />ETH/BTC</td>
+                                                                <td>2562.365289</td>
+                                                                <td><span className="t-green">2.20% <FontAwesomeIcon icon={faArrowUp} /></span></td>
+                                                                <td>2562.365289</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><span className='pe-2 staricon'><FontAwesomeIcon icon={faStar} /></span><Image src="../assets/images/color/bnb.svg" width={25} height={25} alt="coin" className="coinlisticon" />BNB/ETH</td>
+                                                                <td>2562.365289</td>
+                                                                <td><span className="t-green">2.20% <FontAwesomeIcon icon={faArrowUp} /></span></td>
+                                                                <td>2562.365289</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><span className='pe-2 staricon'><FontAwesomeIcon icon={faStar} /></span><Image src="../assets/images/color/trx.svg" width={25} height={25} alt="coin" className="coinlisticon" />TRX/ETH</td>
+                                                                <td>2562.365289</td>
+                                                                <td><span className="t-green">2.20% <FontAwesomeIcon icon={faArrowUp} /></span></td>
+                                                                <td>2562.365289</td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td><span className='pe-2 staricon'><FontAwesomeIcon icon={faStar} /></span><Image src="../assets/images/color/sol.svg" width={25} height={25} alt="coin" className="coinlisticon" />SOL/ETH</td>
+                                                                <td>2562.365289</td>
+                                                                <td><span className="t-green">2.20% <FontAwesomeIcon icon={faArrowUp} /></span></td>
+                                                                <td>2562.365289</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><span className='pe-2 staricon'><FontAwesomeIcon icon={faStar} /></span><Image src="../assets/images/color/xrp.svg" width={25} height={25} alt="coin" className="coinlisticon" />XRP/ETH</td>
+                                                                <td>2562.365289</td>
+                                                                <td><span className="t-green">2.20% <FontAwesomeIcon icon={faArrowUp} /></span></td>
+                                                                <td>2562.365289</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><span className='pe-2 staricon'><FontAwesomeIcon icon={faStar} /></span><Image src="../assets/images/color/ada.svg" width={25} height={25} alt="coin" className="coinlisticon" />ADA/ETH</td>
+                                                                <td>2562.365289</td>
+                                                                <td><span className="t-green">2.20% <FontAwesomeIcon icon={faArrowUp} /></span></td>
+                                                                <td>2562.365289</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><span className='pe-2 staricon'><FontAwesomeIcon icon={faStar} /></span><Image src="../assets/images/color/doge.svg" width={25} height={25} alt="coin" className="coinlisticon" />DOGE/ETH</td>
+                                                                <td>2562.365289</td>
+                                                                <td><span className="t-green">2.20% <FontAwesomeIcon icon={faArrowUp} /></span></td>
+                                                                <td>2562.365289</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </Table>
+                                                </Simplebar>
+                                            </Tab.Pane>
+                                        </Tab.Content>
+                                    </Tab.Container>
+                                </div>
+                            </NavDropdown>
+                        </span>
+                    </li>
+                    <li><a className="livepricet">Last price<span className="t-red">0.236589</span></a></li>
+                    <li><a className="livepricet">24H change<span className="t-green">0.236589</span></a></li>
+                    <li><a className="livepricet">24H volume<span>0.236589 BTC</span></a></li>
+                    <li><a className="livepricet">24H Low<span>0.236589 BTC</span></a></li>
+                </ul>
+            </div>
+        </div>
+    )
+}
+
+export default page;
